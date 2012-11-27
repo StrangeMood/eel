@@ -5,6 +5,11 @@ class Symbol
            :desc, :asc,
            to: :attr
 
+  def between *other
+    other = other.flatten
+    Arel::Nodes::Between.new(attr, Arel::Nodes::And.new(other))
+  end
+
   def attr
     attr = Arel::Attributes::Attribute.new
     attr.name = self

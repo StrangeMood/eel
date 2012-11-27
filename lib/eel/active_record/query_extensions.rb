@@ -4,7 +4,11 @@ module Eel
 
       def order *args
         return self if args.blank?
+        super *args.flatten.map { |a| a.respond_to?(:expr) ? assign_context(a.expr) : a }
+      end
 
+      def reorder *args
+        return self if args.blank?
         super *args.flatten.map { |a| a.respond_to?(:expr) ? assign_context(a.expr) : a }
       end
 
