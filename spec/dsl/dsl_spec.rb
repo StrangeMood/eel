@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Eel query dsl' do
-  context 'Single filtering' do
+  context 'Simple filtering' do
     before do
       3.times do |index|
         create(:todo_item, score_points: index + 1, due_date: Date.current + index.days)
