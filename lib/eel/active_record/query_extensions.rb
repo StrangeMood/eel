@@ -1,24 +1,21 @@
 module Eel
   module ActiveRecord
-    module Eel::QueryExtensions
+    module QueryExtensions
 
       def order *args
         return self if args.blank?
 
-        normalized_args = args.flatten.map do |a|
-          if Arel::Nodes::Unary === a
-            a.expr.relation = table if Arel::Attributes::Attribute === a.expr
-          end
-          a
-        end
-        super(*normalized_args)
+        super *args.flatten.map { |a| assign_context(a) }
       end
 
       def build_where(opts, other = [])
         case opts
           when Arel::Nodes::Node
             nodes = [opts] + other
-            assign_context(nodes)
+            nodes.each do |node|
+              assign_context(node.left)
+              assign_context(node.right)
+            end
             nodes
           else
             super
@@ -27,10 +24,11 @@ module Eel
 
       private
 
-      def assign_context attribute
-        if attribute.is_a?(Arel::Attributes::Attribute) && attribute.relation.blank?
-          attribute.relation = table
+      def assign_context attr
+        if attr.is_a?(Arel::Attributes::Attribute) && attr.relation.blank?
+          attr.relation = table
         end
+        attr
       end
 
     end
