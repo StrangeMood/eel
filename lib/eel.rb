@@ -1,5 +1,8 @@
-require "eel/version"
+require 'eel/version'
 
 module Eel
-  # Your code goes here...
+
 end
+
+require 'eel/active_record'
+require 'eel/core_ext/symbol'
