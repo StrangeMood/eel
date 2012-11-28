@@ -6,8 +6,8 @@ require 'eel/version'
 Gem::Specification.new do |gem|
   gem.name          = 'eel'
   gem.version       = Eel::VERSION
-  gem.authors       = ['Ivan Efremov']
-  gem.email         = ['st8998@gmail.com']
+  gem.authors       = ['Ivan Efremov', 'Anatoly Lapshin']
+  gem.email         = ['st8998@gmail.com', 'holywarez@gmail.com']
   gem.description   = %q{It is more like Squeel but without Squ}
   gem.summary       = %q{It is more like Squeel but without Squ}
   gem.homepage      = 'https://github.com/StrangeMood/eel'
