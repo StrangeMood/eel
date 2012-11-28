@@ -1,7 +1,7 @@
 class Symbol
 
   delegate :gt, :gteq, :lt, :lteq,
-           :eq, :in,
+           :eq, :not_eq, :in, :not_in,
            :desc, :asc,
            to: :attr
 
@@ -21,7 +21,7 @@ class Symbol
                  when Class
                    val.arel_table
                  when Symbol
-                   val.to_s.classify.constantize
+                   val
                  when String
                    val.classify.constantize
                  else

@@ -29,8 +29,13 @@ module Eel
       private
 
       def assign_context attr
-        if attr.is_a?(Arel::Attributes::Attribute) && attr.relation.blank?
-          attr.relation = table
+        if attr.is_a?(Arel::Attributes::Attribute)
+          case attr.relation
+            when Symbol
+              attr.relation = Arel::Table.new(attr.relation, table.engine)
+            when NilClass
+              attr.relation = table
+          end
         end
         attr
       end
