@@ -24,7 +24,6 @@ describe 'Eel query dsl' do
       it { should have(1).item }
       its('first.author_id') { should be(2) }
     end
-
   end
 
 end

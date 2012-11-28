@@ -21,10 +21,10 @@ describe 'Eel Symbol extensions' do
 
       it 'should return Arel::Nodes::Node on predicates methods' do
         binary_predicates.each do |predicate|
-          :test_symbol.send(predicate, 1).should be_kind_of(Arel::Nodes::Node)
+          :test_symbol.send(predicate, 1).should be_kind_of(Arel::Nodes::Binary)
         end
         unary_predicates.each do |predicate|
-          :test_symbol.send(predicate).should be_kind_of(Arel::Nodes::Node)
+          :test_symbol.send(predicate).should be_kind_of(Arel::Nodes::Unary)
         end
       end
     end
