@@ -27,18 +27,4 @@ describe 'Eel query dsl' do
 
   end
 
-  #context 'Filtering with joins' do
-  #  before do
-  #    head = create(:todo_item, score_points: 10, due_date: Date.current)
-  #    3.times do |index|
-  #      create(:todo_item, parent: head, score_points: index + 1, due_date: Date.current + index.days)
-  #    end
-  #  end
-  #
-  #  context 'greater than' do
-  #    subject { TodoItem.joins(:sub_tasks).where(:sub_tasks => {:id => 12}) }
-  #    it { should have(1).item }
-  #    its('first.parent') { should_not be(nil) }
-  #  end
-  #end
 end

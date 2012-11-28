@@ -1,9 +1,9 @@
 require 'eel/version'
 
-module Eel
-
-end
-
 require 'eel/active_record/query_extensions'
-require 'eel/active_record'
-require 'eel/core_ext/symbol'
+require 'eel/core_ext/symbol_extensions'
+
+ActiveRecord::Relation.send :include, Eel::ActiveRecord::QueryExtensions
+Symbol.send :include, Eel::CoreExt::SymbolExtensions
+
+

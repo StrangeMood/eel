@@ -1,1 +1,0 @@
-ActiveRecord::Relation.send :include, Eel::ActiveRecord::QueryExtensions
