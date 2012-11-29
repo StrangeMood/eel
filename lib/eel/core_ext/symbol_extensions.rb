@@ -31,11 +31,7 @@ module Eel
       end
 
       def method_missing method_name, *args, &block
-        if Arel::Attributes::Attribute.new.respond_to?(method_name)
-          SymbolExtensions.class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
-            delegate :#{method_name}, to: :attr
-          RUBY
-
+        if (attr = Arel::Attributes::Attribute.new(nil, self)).respond_to?(method_name)
           if args.present?
             attr.send(method_name, *args) # binary nodes
           else

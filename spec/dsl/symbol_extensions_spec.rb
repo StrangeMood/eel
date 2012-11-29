@@ -30,14 +30,14 @@ describe 'Eel Symbol extensions' do
     end
 
     context 'dynamic methods' do
-      it 'should define predicate methods after first call' do
+      it 'should not pollute symbol with predicate methods' do
         binary_predicates.each do |predicate|
           :test_symbol.send(predicate, 1)
-          Symbol.instance_methods.should include(predicate)
+          Symbol.instance_methods.should_not include(predicate)
         end
         unary_predicates.each do |predicate|
           :test_symbol.send(predicate)
-          Symbol.instance_methods.should include(predicate)
+          Symbol.instance_methods.should_not include(predicate)
         end
       end
     end
