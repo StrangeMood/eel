@@ -26,4 +26,16 @@ describe 'Eel produced sql' do
         should eq(Post.order(:created_at).reorder('"posts"."id" DESC, "posts"."updated_at" ASC').to_sql)
     end
   end
+
+  context 'manual relation binding' do
+    it 'should produce correct where statements' do
+      Post.joins(:comments).where(:id.of(:comments).eq(1)).to_sql.
+        should eq(Post.joins(:comments).where(:comments => {:id => 1}).to_sql)
+    end
+    it 'should produce correct order statements' do
+      Post.joins(:comments).order(:id.of(:comments).asc).to_sql.
+        should eq(Post.joins(:comments).order('"comments"."id" ASC').to_sql)
+    end
+  end
+
 end
