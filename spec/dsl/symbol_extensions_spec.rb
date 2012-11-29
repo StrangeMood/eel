@@ -42,5 +42,23 @@ describe 'Eel Symbol extensions' do
       end
     end
 
+    context 'implicit relation binding to symbol' do
+      subject { :test_symbol.of(:posts) }
+      its(:name) { should be :test_symbol }
+      its(:relation) { should be :posts }
+    end
+
+    context 'implicit relation binding to string' do
+      subject { :test_symbol.of('posts') }
+      its(:name) { should be :test_symbol }
+      its(:relation) { should be :posts }
+    end
+
+    context 'implicit relation binding to Class' do
+      subject { :test_symbol.of(Post) }
+      its(:name) { should be :test_symbol }
+      its(:relation) { should be Post.arel_table }
+    end
+
   end
 end

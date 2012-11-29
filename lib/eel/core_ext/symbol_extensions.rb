@@ -8,9 +8,7 @@ module Eel
       end
 
       def attr
-        attr = Arel::Attributes::Attribute.new
-        attr.name = self
-        attr
+        Arel::Attributes::Attribute.new(nil, self)
       end
 
       def of val
@@ -20,15 +18,12 @@ module Eel
                      when Symbol
                        val
                      when String
-                       val.classify.constantize
+                       val.to_sym
                      else
                        raise "Can't use #{val.class} as a relation"
                    end
 
-        attr = Arel::Attributes::Attribute.new
-        attr.name = self
-        attr.relation = relation
-        attr
+        Arel::Attributes::Attribute.new(relation, self)
       end
 
       def respond_to_missing? method_name, private = false
