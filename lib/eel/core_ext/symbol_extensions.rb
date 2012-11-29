@@ -2,11 +2,6 @@ module Eel
   module CoreExt
     module SymbolExtensions
 
-      def between *other
-        other = other.flatten
-        Arel::Nodes::Between.new(attr, Arel::Nodes::And.new(other))
-      end
-
       def attr
         Arel::Attributes::Attribute.new(nil, self)
       end
