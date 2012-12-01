@@ -51,7 +51,7 @@ describe 'Eel Symbol extensions' do
     context 'implicit relation binding to string' do
       subject { :test_symbol.of('posts') }
       its(:name) { should be :test_symbol }
-      its(:relation) { should be :posts }
+      its('relation.name') { should eq Post.arel_table.name }
     end
 
     context 'implicit relation binding to Class' do

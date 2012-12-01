@@ -13,7 +13,7 @@ module Eel
                      when Symbol
                        val
                      when String
-                       val.to_sym
+                       Arel::Table.new(val)
                      else
                        raise "Can't use #{val.class} as a relation"
                    end
