@@ -1,3 +1,3 @@
-# Eel
+# Eel [![Build Status](https://secure.travis-ci.org/StrangeMood/eel.png?branch=master)](https://travis-ci.org/StrangeMood/eel)
 
 Work in progress...
