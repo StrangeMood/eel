@@ -13,9 +13,7 @@ gem 'faker'
 
 gem 'arel_predications', path: './arel_predications'
 
-rails = ENV['RAILS'] || '3-2-stable'
+rails = ENV['RAILS'] || '~> 3.2.0'
 
-git 'git://github.com/rails/rails.git', branch: rails do
-  gem 'activesupport'
-  gem 'activerecord'
-end
+gem 'activesupport', rails
+gem 'activerecord',  rails
