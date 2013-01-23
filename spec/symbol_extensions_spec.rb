@@ -60,5 +60,11 @@ describe 'Eel Symbol extensions' do
       its(:relation) { should be Post.arel_table }
     end
 
+    context 'it should not respond to to_ari/to_a' do
+      subject { :test_symbol }
+      it { should_not respond_to(:to_a) }
+      it { should_not respond_to(:to_ari) }
+    end
+
   end
 end

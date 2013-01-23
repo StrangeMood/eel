@@ -22,11 +22,11 @@ module Eel
       end
 
       def respond_to_missing? method_name, private = false
-        Arel::Attributes::Attribute.new.respond_to?(method_name)
+        method_name.in? predicates
       end
 
       def method_missing method_name, *args, &block
-        if (attr = Arel::Attributes::Attribute.new(nil, self)).respond_to?(method_name)
+        if method_name.in? predicates
           if args.present?
             attr.send(method_name, *args) # binary nodes
           else
@@ -35,6 +35,12 @@ module Eel
         else
           super
         end
+      end
+
+      private
+
+      def predicates
+        Arel::OrderPredications.instance_methods + Arel::Predications.instance_methods
       end
 
     end
