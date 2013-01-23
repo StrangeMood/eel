@@ -16,6 +16,15 @@ describe 'Eel produced sql' do
     end
   end
 
+  context 'combined queries' do
+    it 'should produce correct ORed/ANDed statements' do
+      Post.where(:id.gt(12).or(:id.lt(15))).to_sql.
+          should eq(Post.where('("posts"."id" > 12 OR "posts"."id" < 15)').to_sql)
+      Post.where(:id.gt(12).and(:id.lt(15))).to_sql.
+          should eq(Post.where('"posts"."id" > 12 AND "posts"."id" < 15').to_sql)
+    end
+  end
+
   context 'combined ordering' do
     it 'should produce correct combined order statements' do
       Post.order(:id.desc, :created_at.asc).to_sql.
