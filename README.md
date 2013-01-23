@@ -10,14 +10,12 @@ User.where(['age > ?', x]) # AR
 User.where(User.arel_table[:age].gt x) # Arel with AR
 User.where(:age.gt x) # Eel with AR
 ```
-
 ```ruby
 # or you can combine more than one column in one statement
 User.where('created_at > updated_at') # AR
 User.where(User.arel_table[:created_at].gt(User.arel_table[:updated_at])) # Arel with AR
 User.where(:created_at.gt :updated_at.attr) # Eel with AR
 ```
-
 ```ruby
 # sql logical operands are acceptable
 User.where(['age > ? OR role = ?', x, 'admin']) # AR
