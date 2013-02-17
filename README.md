@@ -1,7 +1,7 @@
 # Eel [![Build Status](https://secure.travis-ci.org/StrangeMood/eel.png?branch=master)](https://travis-ci.org/StrangeMood/eel)
 
 This is a small AR extension created to unleash the power of Arel
-and make it visually suitable for every day use.
+and make it visually suitable for every day usage.
 
 Examples:
 ```ruby
