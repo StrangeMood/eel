@@ -12,8 +12,8 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{It is more like Squeel but without Squ}
   gem.homepage      = 'https://github.com/StrangeMood/eel'
 
-  gem.add_dependency 'activerecord', '>= 3.1'
-  gem.add_dependency 'activesupport', '>= 3.1'
+  gem.add_dependency 'activerecord'
+  gem.add_dependency 'activesupport'
 
   gem.files         = `git ls-files lib/`.split($/)
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
