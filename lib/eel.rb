@@ -1,5 +1,3 @@
-require 'eel/version'
-
 require 'eel/active_record/query_extensions'
 require 'eel/core_ext/symbol_extensions'
 

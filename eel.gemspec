@@ -1,11 +1,10 @@
 # -*- encoding: utf-8 -*-
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'eel/version'
 
 Gem::Specification.new do |gem|
   gem.name          = 'eel'
-  gem.version       = Eel::VERSION
+  gem.version       = '1.0.3'
   gem.authors       = ['Ivan Efremov', 'Anatoly Lapshin']
   gem.email         = ['st8998@gmail.com', 'holywarez@gmail.com']
   gem.description   = %q{It is more like Squeel but without Squ}

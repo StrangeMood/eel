@@ -1,17 +1,15 @@
-require 'rubygems'
 require 'bundler/setup'
 
-#require 'support/active_record'
+require 'active_support'
 require 'active_model'
 require 'active_record'
 require 'factory_girl'
 require 'faker'
 require 'rspec/rails/extensions/active_record/base'
 
-require 'eel'
+require 'support/schema_definition'
 
-dirname = File.dirname(__FILE__)
-Dir["#{dirname}/support/**/*.rb"].each { |i| require i.gsub("#{dirname}/", '') }
+require 'eel'
 
 FactoryGirl.find_definitions
 

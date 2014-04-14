@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org'
 
 # Specify your gem's dependencies in eel.gemspec
 gemspec
@@ -13,7 +13,7 @@ gem 'faker'
 
 gem 'arel_predications', path: './arel_predications'
 
-rails_version = ENV['RAILS'] || '3.2.0'
+rails_version = ENV['RAILS'] || '3.2'
 
 gem 'activesupport', "~> #{rails_version}"
 gem 'activerecord',  "~> #{rails_version}"
